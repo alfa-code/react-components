@@ -52,9 +52,10 @@ pipeline {
 
         stage("Commit Changes") {
           steps {
-            sh 'npm run get:version --silent';
+            sh 'git add -A';
+            sh 'git commit -m "library version is $(npm run get:version --silent)" ';
             sh 'git tag $(npm run get:version --silent)';
-            sh 'git push --tags';
+            sh 'git push --follow-tags';
           }
         }
 

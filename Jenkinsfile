@@ -51,9 +51,11 @@ pipeline {
         }
 
         stage("Commit Changes") {
-          sh 'npm run get:version --silent';
-          sh 'git tag $(npm run get:version --silent)';
-          sh 'git push --tags';
+          steps {
+            sh 'npm run get:version --silent';
+            sh 'git tag $(npm run get:version --silent)';
+            sh 'git push --tags';
+          }
         }
 
         stage('Check Build') {

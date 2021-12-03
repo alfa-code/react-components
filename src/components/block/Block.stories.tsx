@@ -1,39 +1,28 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from './index';
+import { Block } from './index';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/Button',
-  component: Button,
+  title: 'Components/Block',
+  component: Block,
   // // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   //   backgroundColor: {
   //     control: 'color'
   //   },
   // },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof Block>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => {
+const Template: ComponentStory<typeof Block> = (args) => {
   return (
-    <Button {...args} >
-      { args.children }
-    </Button>
+    <Block />
   )
 }
 
-export const Primary = Template.bind({});
+export const Main = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  children: "Button",
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  children: "Button 2",
-  label: 'Button',
-};
+Main.args = {};

@@ -45,14 +45,14 @@ pipeline {
                 echo "Сборка";
                 sh 'yarn build';
 
-                echo "Проверяем содержимое папки";
-                sh 'ls -a';
+                // echo "Проверяем содержимое папки";
+                // sh 'ls -a';
             }
         }
 
         stage('Check Build') {
             steps {
-                dir("folder") {
+                dir("dist") {
                     sh "pwd"
 
                     echo "Проверяем содержимое папки";

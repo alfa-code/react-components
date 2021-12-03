@@ -5,8 +5,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemovePlugin = require('remove-files-webpack-plugin');
 
-// const glob = require("glob");
-
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath).filter(function (file) {
       return fs.statSync(path.join(srcpath, file)).isDirectory();
@@ -21,7 +19,7 @@ var entry = {
 var components = getDirectories("./src/components");
 
 for (var i = 0; i < components.length; i++) {
-  entry[components[i]] = "./src/components/" + components[i] + "/" + /*components[i]*/ "index" + ".tsx";
+  entry[components[i]] = "./src/components/" + components[i] + "/" + /*components[i]*/ "index" + ".ts";
 }
 console.log('entry:', entry);
 
@@ -29,18 +27,15 @@ module.exports = {
   devtool: 'source-map',
   mode: 'development' || 'production',
   entry,
-  // entry: {
-    // alpha: './src/alpha.ts',
-    // beta: './src/beta.ts',
-    // button: './src/components/button/index.tsx',
-    // js: glob.sync("./src/components/**/*.tsx"),
-  // },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name]/index.js',
     library: ['@alfa-code/react-components', '[name]'],
     libraryTarget: 'umd',
     globalObject: 'this',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   module: {
     rules: [

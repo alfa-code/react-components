@@ -57,6 +57,11 @@ pipeline {
 
                     echo "Проверяем содержимое папки";
                     sh 'ls -a';
+
+                    withNPM(npmrcConfig:'.npmrc') {
+                        echo "Lib Publishing..."
+                        sh 'npm publish --access public'
+                    }
                 }
             }
         }

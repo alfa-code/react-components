@@ -49,6 +49,17 @@ pipeline {
                 sh 'ls -a';
             }
         }
+
+        stage('Check Build') {
+            steps {
+                dir("folder") {
+                    sh "pwd"
+
+                    echo "Проверяем содержимое папки";
+                    sh 'ls -a';
+                }
+            }
+        }
     }
 
     post {

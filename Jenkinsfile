@@ -57,7 +57,7 @@ pipeline {
             // sh 'git add -A';
             // sh 'git commit -m "library version is $(npm run get:version --silent)" ';
             sh 'git tag $(npm run get:version --silent)';
-            sh 'git push --follow-tags';
+            sh 'git push --tags';
           }
         }
 

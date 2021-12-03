@@ -3,6 +3,7 @@ const fs = require('fs');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const RemovePlugin = require('remove-files-webpack-plugin');
 
 // const glob = require("glob");
 
@@ -74,7 +75,6 @@ module.exports = {
         ],
         exclude: /\.module\.css$/,
       },
-
     ]
   },
   externals: {
@@ -83,6 +83,19 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new RemovePlugin({
+      before: {
+        include: [
+          './dist'
+        ]
+      },
+      watch: {
+          // parameters for "before watch compilation" stage.
+      },
+      after: {
+          // parameters for "after normal and watch compilation" stage.
+      }
+    }),
     new CopyPlugin({
       patterns: [
         { from: './package.json', to: '.' },

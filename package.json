@@ -1,6 +1,6 @@
 {
   "name": "@alfa-code/react-components",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Alfa-Code React Components Library",
   "main": "index.js",
   "repository": "git@github.com:alfa-code/react-components.git",
@@ -18,7 +18,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "version:path": "npm version patch"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

@@ -44,6 +44,9 @@ pipeline {
             steps {
                 echo "Сборка";
                 sh 'yarn build';
+
+                echo "Проверяем содержимое папки";
+                sh 'ls -a';
             }
         }
     }

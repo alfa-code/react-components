@@ -59,7 +59,7 @@ pipeline {
                     sh 'ls -a';
 
                     echo "Lib Publishing..."
-                    withNPM(npmrcConfig:'npmrc') {
+                    withNPM(npmrcConfig:'9680ce5e-6e04-4278-96f4-7b3fa1b68099') {
                         echo "Start Lib Publishing..."
                         sh 'npm publish --access public';
                         echo "End Lib Publishing..."

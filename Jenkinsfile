@@ -42,19 +42,23 @@ pipeline {
 
         stage('Build') {
             steps {
+                echo "Обновление npm версии";
+                echo "npm version patch";
+
                 echo "Сборка";
                 sh 'yarn build';
-
-                // echo "Проверяем содержимое папки";
-                // sh 'ls -a';
             }
+        }
+
+        stage("Commit Changes") {
+          sh 'npm run get:version --silent';
+          sh 'git tag $(npm run get:version --silent)';
+          sh 'git push --tags';
         }
 
         stage('Check Build') {
             steps {
                 dir("dist") {
-                    sh "pwd"
-
                     echo "Проверяем содержимое папки";
                     sh 'ls -a';
 

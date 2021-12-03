@@ -13,7 +13,8 @@
     "build:js": "webpack --config webpack.config.js --progress --profile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "packaging": "cd ./dist && npm pack",
-    "publication": "cd ./dist && npm publish --access public"
+    "publication": "cd ./dist && npm publish --access public",
+    "get:version": "node -p \"process.env.npm_package_version\""
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

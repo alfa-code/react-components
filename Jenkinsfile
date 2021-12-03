@@ -40,26 +40,19 @@ pipeline {
             }
         }
 
-        // stage('Build') {
-        //     steps {
-        //         echo "Обновление npm версии";
-        //         echo "npm version patch";
-
-        //         echo "Сборка";
-        //         sh 'yarn build';
-        //     }
-        // }
-
-        stage("Commit Changes") {
-          steps {
-            // sh 'git config --global user.email "hydrock@yandex.ru"';
-            // sh 'git config --global user.name "Hydrock"';
-            // sh 'git add -A';
-            // sh 'git commit -m "library version is $(npm run get:version --silent)" ';
-            sh 'git tag $(npm run get:version --silent)';
-            sh 'git push --tags';
-          }
+        stage('Build') {
+            steps {
+                echo "Сборка";
+                sh 'yarn build';
+            }
         }
+
+        // stage("Commit Changes") {
+        //   steps {
+        //     sh 'git tag $(npm run get:version --silent)';
+        //     sh 'git push --tags';
+        //   }
+        // }
 
         stage('Check Build') {
             steps {

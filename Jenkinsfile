@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+
+    environment {
+        PATH = "/home/jenkins/yandex-cloud/bin:$PATH"
+    }
+
+    stages {
+        stage('Prepare') {
+            steps {
+                echo "------------------------------";
+
+                echo "Версия yc cli";
+                sh 'echo $(yc version)';
+
+                echo "------------------------------";
+
+                echo "Версия node";
+                sh 'echo $(node -v)';
+
+                echo "------------------------------";
+
+                echo "Проверяем содержимое папки";
+                sh 'ls -a';
+
+                echo "------------------------------";
+            }
+        }
+
+        stage('Install') {
+            steps {
+                sh 'yarn install'
+            }
+        }
+
+        stage('Check') {
+            steps {
+                echo "Проверяем содержимое папки после установки пакетов";
+                sh 'ls -a';
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Сборка";
+                sh 'yarn build';
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "------------------------------";
+
+            echo "Очищаем workspace";
+            deleteDir()
+
+            echo "------------------------------";
+        }
+    }
+}

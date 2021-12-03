@@ -4,12 +4,13 @@ import styles from './styles.module.css';
 
 type Props = {
   children: any;
+  [key: string]: any;
 }
 
 export function Button(props: Props): JSX.Element {
-  const { children } = props;
+  const { children, ...rest } = props;
   return (
-    <button className={ styles.button }>
+    <button className={ styles.button } { ...rest }>
       { children }
     </button>
   )

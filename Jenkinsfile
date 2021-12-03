@@ -40,44 +40,42 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                echo "Обновление npm версии";
-                sh 'npm run get:version --silent';
-                echo "npm version patch";
-                sh 'npm run get:version --silent';
-
-                echo "Сборка";
-                sh 'yarn build';
-            }
-        }
-
-        // stage("Commit Changes") {
-        //   steps {
-        //     sh 'git config --global user.email "hydrock@yandex.ru"';
-        //     sh 'git config --global user.name "Hydrock"';
-        //     sh 'git add -A';
-        //     sh 'git commit -m "library version is $(npm run get:version --silent)" ';
-        //     sh 'git tag $(npm run get:version --silent)';
-        //     sh 'git push --follow-tags';
-        //   }
-        // }
-
-        // stage('Check Build') {
+        // stage('Build') {
         //     steps {
-        //         dir("dist") {
-        //             echo "Проверяем содержимое папки";
-        //             sh 'ls -a';
+        //         echo "Обновление npm версии";
+        //         echo "npm version patch";
 
-        //             echo "Lib Publishing..."
-        //             withNPM(npmrcConfig:'9680ce5e-6e04-4278-96f4-7b3fa1b68099') {
-        //                 echo "Start Lib Publishing..."
-        //                 sh 'npm publish --access public';
-        //                 echo "End Lib Publishing..."
-        //             }
-        //         }
+        //         echo "Сборка";
+        //         sh 'yarn build';
         //     }
         // }
+
+        stage("Commit Changes") {
+          steps {
+            // sh 'git config --global user.email "hydrock@yandex.ru"';
+            // sh 'git config --global user.name "Hydrock"';
+            // sh 'git add -A';
+            // sh 'git commit -m "library version is $(npm run get:version --silent)" ';
+            sh 'git tag $(npm run get:version --silent)';
+            sh 'git push --follow-tags';
+          }
+        }
+
+        stage('Check Build') {
+            steps {
+                dir("dist") {
+                    echo "Проверяем содержимое папки";
+                    sh 'ls -a';
+
+                    echo "Lib Publishing..."
+                    withNPM(npmrcConfig:'9680ce5e-6e04-4278-96f4-7b3fa1b68099') {
+                        echo "Start Lib Publishing..."
+                        sh 'npm publish --access public';
+                        echo "End Lib Publishing..."
+                    }
+                }
+            }
+        }
     }
 
     post {

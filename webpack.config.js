@@ -31,6 +31,8 @@ module.exports = {
     library: ['@alfa-code/react-components', '[name]'],
     libraryTarget: 'umd',
     globalObject: 'this',
+    assetModuleFilename: 'assets/[hash][ext][query]',
+    publicPath: '',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']

@@ -2,30 +2,28 @@ const path = require('path');
 const fs = require('fs');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
+/**
+ * Returns array of components directories names
+ */
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath).filter(function (file) {
       return fs.statSync(path.join(srcpath, file)).isDirectory();
   });
 }
 
-var entry = {
-  // app: "./src/app.ts",
-  // vendor: ["angular", "oclazyload", "angular-new-router", "lodash"]
-};
-
-var components = getDirectories("./src/components");
-
-for (var i = 0; i < components.length; i++) {
-  entry[components[i]] = "./src/components/" + components[i] + "/" + /*components[i]*/ "index" + ".ts";
+let entry = {};
+var componentsNames = getDirectories("./src/components");
+for (var i = 0; i < componentsNames.length; i++) {
+  entry[componentsNames[i]] = "./src/components/" + componentsNames[i] + "/" +"index.ts";
 }
-console.log('entry:', entry);
 
 module.exports = {
   devtool: 'source-map',
-  mode: 'development' || 'production',
+  mode: 'production',
   entry,
   output: {
     path: path.join(__dirname, 'dist'),
@@ -49,7 +47,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // publicPath: "/styles",
+              // emit: false
+            },
+          },
           // "style-loader",
           {
             loader: "css-loader",
@@ -101,5 +105,22 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/[name].css',
     }),
-  ]
+  ],
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: "styles",
+          type: "css/mini-extract",
+          chunks: "all",
+          enforce: true,
+        },
+      },
+    },
+  },
 };

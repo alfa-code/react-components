@@ -49,10 +49,7 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              // publicPath: "/styles",
-              // emit: false
-            },
+            options: {},
           },
           // "style-loader",
           {
@@ -65,15 +62,15 @@ module.exports = {
         ],
         include: /\.module\.css$/,
       },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     // MiniCssExtractPlugin.loader,
-      //     "style-loader",
-      //     "css-loader"
-      //   ],
-      //   exclude: /\.module\.css$/,
-      // },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          // "style-loader",
+          "css-loader"
+        ],
+        exclude: /\.module\.css$/,
+      },
     ]
   },
   externals: {

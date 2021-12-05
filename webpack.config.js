@@ -49,8 +49,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // MiniCssExtractPlugin.loader,
-          "style-loader",
+          MiniCssExtractPlugin.loader,
+          // "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -61,15 +61,15 @@ module.exports = {
         ],
         include: /\.module\.css$/,
       },
-      {
-        test: /\.css$/,
-        use: [
-          // MiniCssExtractPlugin.loader,
-          "style-loader",
-          "css-loader"
-        ],
-        exclude: /\.module\.css$/,
-      },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     // MiniCssExtractPlugin.loader,
+      //     "style-loader",
+      //     "css-loader"
+      //   ],
+      //   exclude: /\.module\.css$/,
+      // },
     ]
   },
   externals: {

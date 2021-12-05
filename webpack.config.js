@@ -71,6 +71,10 @@ module.exports = {
         ],
         exclude: /\.module\.css$/,
       },
+      {
+        test: /\.png/,
+        type: 'asset/resource'
+      },
     ]
   },
   externals: {

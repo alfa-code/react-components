@@ -1,0 +1,121 @@
+:root {
+  // background-color: red;
+  font-family: "Roboto", sans-serif;
+
+  min-width: 320px;
+
+  color: var(--text-primary);
+
+  /* Colors */
+  --text-primary: #172a3f;
+  --text-paragraphs: #546271;
+  --text-secondary: #6d7986;
+  --text-tetriary: #b5bbc2;
+  --text-green: #13A463;
+  --text-inverse: #ffffff;
+
+  --brand-red: #ef3124;
+  --brand-primary: #172a3f;
+  --brand-secondary: #858f9a;
+  --brand-gray: #b6bcc3;
+  --brand-black: #0b1f35;
+
+  --background-main: #f3f4f5;
+  --background-light: #f9fafa;
+  --background-1: #fef9d2;
+  --background-2: #dae6ff;
+  --background-3: #d6f5f2;
+  --background-green: #13A463;
+  --background-white: #FFFFFF;
+
+  --illustrations-blue: #4480ff;
+  --illustration-yellow: #ffb96f;
+  --illustration-green: #40b198;
+  --illustration-red: #ff5c5c;
+
+  --hover-brand-red: #d92c21;
+  --hover-primary: #000000;
+
+  --disabled: #d3d4d8;
+
+  /* Elevation */
+  --elevation: 0px 10px 24px rgba(23, 42, 63, .1);
+
+  /* Text Styles */
+  --text-heading-1: 48px;
+  --text-heading-2: 40px;
+  --text-heading-3: 30px;
+  --text-heading-4: 22px;
+  --text-heading-5: 16px;
+  --text-heading-6: 16px;
+
+  // @include media("<desktop-3") {
+  //     --text-heading-1: 40px;
+  //     --text-heading-2: 30px;
+  //     --text-heading-3: 22px;
+  //     --text-heading-4: 16px;
+  //     --text-heading-5: 12px;
+  //     --text-heading-6: 16px;
+  // }
+
+  // @include media("<=tablet-1") {
+  //     --text-heading-1: 28px;
+  //     --text-heading-2: 24px;
+  //     --text-heading-3: 18px;
+  //     --text-heading-4: 16px;
+  //     --text-heading-5: 12px;
+  //     --text-heading-6: 16px;
+  // }
+
+  // @include media("<=phone-2") {
+  //     --text-heading-1: 24px;
+  //     --text-heading-2: 20px;
+  //     --text-heading-3: 16px;
+  //     --text-heading-4: 16px;
+  //     --text-heading-5: 12px;
+  //     --text-heading-6: 15px;
+  // }
+
+  /* Sizes */
+  --width-base-container: 1408px;
+  --width-base-container-additional: 240px;
+
+  /* Gaps */
+  --gap-1: 10px;
+  --gap-2: 20px;
+  --gap-3: 40px;
+  --gap-4: 128px;
+
+  // from arui-feather
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --font-size-m: 16px;
+
+  // Система отступов
+  --gap-2xs: 4px;
+  --gap-xs: 8px;
+  --gap-s: 12px;
+  --gap-m: 16px;
+  --gap-l: 20px;
+  --gap-xl: 24px;
+  --gap-2xl: 32px;
+  --gap-3xl: 40px;
+  --gap-4xl: 48px;
+  --gap-5xl: 64px;
+  --gap-6xl: 72px;
+
+  // @include media("<desktop-3") {
+  //     --width-base-container-additional: 0px;
+  // }
+
+  // @include media(">desktop-1", "<desktop-3") {
+  //     --width-base-container: 1280px;
+  // }
+
+  // @include media("<=desktop-1") {
+  //     --width-base-container: 100%;
+  // }
+
+  --main-border: 1px solid var(--background-main);
+}

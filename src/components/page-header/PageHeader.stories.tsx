@@ -10,7 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof PageHeader> = (args) => {
   return (
-    <PageHeader />
+    <PageHeader {...args}/>
   )
 }
 
@@ -18,4 +18,5 @@ export const Main = Template.bind({});
 
 Main.args = {
   label: 'PageHeader',
+  authContent: 'authContent',
 };

@@ -6,16 +6,22 @@ import { HeaderNavigation } from '../../components/header-navigation';
 
 import styles from './styles.module.scss';
 
-interface Props { }
+interface Props {
+  authContent?: any;
+}
 interface State { }
 
 export class PageHeader extends PureComponent<Props, State> {
     render(): ReactNode {
+        const { authContent } = this.props
         return (
             <header className={styles.header}>
                 <Logo />
                 <HeaderNavigation />
                   {/* <HeaderUser /> */}
+                <div className={styles.marginLeftAuto}>
+                  { authContent }
+                </div>
             </header>
         );
     }

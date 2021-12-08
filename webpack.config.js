@@ -47,7 +47,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -61,15 +61,17 @@ module.exports = {
               modules: true,
             },
           },
+          'sass-loader',
         ],
         include: /\.module\.css$/,
       },
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           // "style-loader",
-          "css-loader"
+          "css-loader",
+          'sass-loader'
         ],
         exclude: /\.module\.css$/,
       },

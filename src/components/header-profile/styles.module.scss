@@ -81,36 +81,6 @@
 .avatar + .username {
   margin-left: 8px;
 }
-
-.list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
-  margin-top: 32px;
-
-  li + li {
-    margin-top: 16px;
-  }
-
-  li {
-    a {
-      text-decoration: none;
-      color: var(--text-primary);
-      display: inline-flex;
-      align-items: center;
-
-      &:hover {
-        color: var(--brand-red);
-      }
-    }
-  }
-}
-
-.menuIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: cover;
-  margin-right: 8px;
-  opacity: 0.4;
+.menuContainer {
+  padding-top: 32px;
 }

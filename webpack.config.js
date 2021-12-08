@@ -70,7 +70,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           // "style-loader",
-          "css-loader",
+          'css-loader',
           'sass-loader'
         ],
         exclude: /\.module\.css$/,
@@ -79,11 +79,16 @@ module.exports = {
         test: /\.png/,
         type: 'asset/inline'
       },
+      {
+        test: /\.svg/,
+        type: 'asset/inline'
+      },
     ]
   },
   externals: {
-    "react": "react",
-    "formik": "formik"
+    'react': 'react',
+    'formik': 'formik',
+    'next': 'next'
   },
   plugins: [
     new CleanWebpackPlugin(),

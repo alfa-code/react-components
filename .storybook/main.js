@@ -30,7 +30,6 @@ module.exports = {
   ],
   'framework': '@storybook/react',
   webpackFinal: async (config, { configType }) => {
-    console.log('config:', config);
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
@@ -41,6 +40,11 @@ module.exports = {
       use: ['style-loader', 'css-loader', 'sass-loader'],
       // include: path.resolve(__dirname, './'),
     });
+
+    // config.module.rules.push({
+    //   test: /\.svg/,
+    //   type: 'asset/inline'
+    // });
 
     // Return the altered config
     return config;

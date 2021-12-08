@@ -26,7 +26,7 @@ export function HeaderProfile(props: Props): JSX.Element {
         </button>
         { isMenuOpen && (
           <div className={ styles.menuContainer }>
-            children
+            { children }
           </div>
         ) }
       </div>

@@ -1,0 +1,13 @@
+.gridContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  flex-basis: 100%;
+
+  column-gap: 32px;
+}
+
+.gridCol {
+  flex-basis: 100%;
+}

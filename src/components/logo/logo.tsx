@@ -31,7 +31,6 @@ export class Logo extends PureComponent<Props, State> {
 
     // @ts-ignore
     const logoPath = logoImgMap[type];
-    console.log('logoPath:', logoPath);
 
     return (
       <Link href='/' >

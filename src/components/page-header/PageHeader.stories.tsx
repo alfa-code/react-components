@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { PageHeader } from './index';
+import { HeaderProfile } from './../header-profile';
 
 export default {
   title: 'Components/PageHeader',
@@ -10,7 +11,15 @@ export default {
 
 const Template: ComponentStory<typeof PageHeader> = (args) => {
   return (
-    <PageHeader {...args}/>
+    <PageHeader
+      {...args}
+      // authContent={
+      //   <HeaderProfile
+      //     avatarSrc="https://html5css.ru/w3images/avatar6.png"
+      //     username="Простой пользователь"
+      //   />
+      // }
+    />
   )
 }
 
@@ -18,5 +27,10 @@ export const Main = Template.bind({});
 
 Main.args = {
   label: 'PageHeader',
-  authContent: 'authContent',
+  authContent: (
+    <HeaderProfile
+      avatarSrc="https://html5css.ru/w3images/avatar6.png"
+      username="Простой пользователь"
+    />
+  ),
 };

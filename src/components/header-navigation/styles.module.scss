@@ -19,5 +19,9 @@
     text-decoration: none;
     color: var(--text-primary);
     transition: 0.25s;
+
+    &:hover {
+      color: var(--brand-red);
+    }
   }
 }

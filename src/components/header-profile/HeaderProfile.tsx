@@ -14,9 +14,6 @@ export function HeaderProfile(props: Props): JSX.Element {
   const [isMenuOpen, setMenuState] = useState(false);
 
   const onBodyClick = (event: any) => {
-    event.preventDefault();
-    event.stopPropagation();
-
     const isSelfClicked = !!event.target.closest("#HeaderProfile");
 
     if (isMenuOpen && !isSelfClicked) {

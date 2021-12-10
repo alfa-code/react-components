@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import { ContentContainer } from '../content-container';
 import { Logo } from '../../components/logo/logo';
@@ -10,7 +10,7 @@ type Props = {
   authContent?: any;
 }
 
-export function PageHeader(props: Props): ReactNode {
+export function PageHeader(props: Props) {
     const { authContent } = props;
 
     return (

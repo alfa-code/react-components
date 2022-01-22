@@ -13,8 +13,9 @@ type Props = {
   href?: string;
   onClick?: any;
   type?: 'button' | any;
-  mode?: 'normal' | 'loading' | 'disabled',
+  mode?: 'normal' | 'loading' | 'disabled';
   target?: string;
+  space?: 'normal' | 'available';
 }
 
 export class NextButton extends Component<Props> {
@@ -86,10 +87,13 @@ export class NextButton extends Component<Props> {
       type = 'button',
       mode = 'normal',
       target,
+      space,
     } = this.props;
 
     const isLoading = mode === 'loading';
     const isDisabled = mode === 'disabled';
+
+    const isSpaceAvailable = space === 'available';
 
     if (href) {
       const linkContent = (
@@ -103,11 +107,13 @@ export class NextButton extends Component<Props> {
         <Link href={href}>
           <a
             className={
-              `${styles.button}
+              `
+              ${styles.button}
               ${this.getButtonClassNames()}
               ${className}
               ${(isLoading || isDisabled) ? styles.disabled : ''}
-            `
+              ${(isSpaceAvailable) ? styles.spaceAvailable : ''}
+              `
             }
             target={target}
           >
@@ -126,6 +132,7 @@ export class NextButton extends Component<Props> {
             ${className}
             ${this.getButtonClassNames()}
             ${styles.button}
+            ${(isSpaceAvailable) ? styles.spaceAvailable : ''}
           `
         }
         onClick={onClick}

@@ -7,6 +7,8 @@ https://alfa-code.github.io/react-components/?path=/story/components-block--main
 
 ## Dev Instructions
 
+Для разработки просто запусти `yarn storybook`.
+
 ### Publish Storybook
 
 https://storybook.js.org/docs/react/workflows/publish-storybook

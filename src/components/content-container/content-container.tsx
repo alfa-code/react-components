@@ -5,13 +5,20 @@ import styles from './styles.module.scss';
 type Props = {
   children: any,
   className?: string;
+  paddingsOnFullWidth?: boolean;
 }
 
 export function ContentContainer(props: Props) {
-  const { children, className } = props;
+  const {
+    children,
+    className,
+    paddingsOnFullWidth = true,
+  } = props;
 
   return (
-    <div className={ `${ styles.container } ${ className ? className : '' }` }>
+    <div
+      className={ `${ styles.container } ${ className ? className : '' } ${paddingsOnFullWidth ? styles.paddingsOnFullWidth : ''}` }
+    >
       { children }
     </div>
   )

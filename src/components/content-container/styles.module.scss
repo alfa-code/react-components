@@ -1,10 +1,23 @@
+@import '../../styles/global.scss';
+@import '../../styles/breakpoints.scss';
+
+$containerWidth: 1440px;
+
 .container {
-  width: 1440px;
+  width: $containerWidth;
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: var(--background-white);
 
-  @media (max-width: 1440px) {
+  @media (max-width: $containerWidth) {
     width: 100%;
     margin: 0;
+    padding: 0 20px;
+  }
+}
+
+.paddingsOnFullWidth {
+  @media (max-width: $containerWidth) {
+    padding: 0 var(--gap-2);
   }
 }

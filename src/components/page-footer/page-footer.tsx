@@ -10,7 +10,10 @@ import styles from './styles.module.scss';
 export function PageFooter() {
   return (
     <footer>
-      <ContentContainer className={ styles.footerMainContent }>
+      <ContentContainer
+        paddingsOnFullWidth={ false }
+        className={ styles.footerMainContent }
+      >
         <div className={ styles.footer }>
 
           <div className={ styles.footer_1 }>

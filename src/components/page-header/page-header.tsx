@@ -14,7 +14,7 @@ export function PageHeader(props: Props) {
     const { authContent } = props;
 
     return (
-      <ContentContainer>
+      <ContentContainer paddingsOnFullWidth={ false } >
         <header className={styles.header}>
             <div className={ styles.logoWrapper } >
               <Logo />

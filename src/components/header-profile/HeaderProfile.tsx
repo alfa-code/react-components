@@ -50,11 +50,9 @@ export function HeaderProfile(props: Props): JSX.Element {
             { username }
           </div>
         </button>
-        { isMenuOpen && (
-          <div className={ styles.menuContainer }>
-            { children }
-          </div>
-        ) }
+        <div className={ `${styles.menuContainer} ${isMenuOpen ?  styles.menuContainerActive : ''}` }>
+          { children }
+        </div>
       </div>
     </div>
   )

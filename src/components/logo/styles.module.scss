@@ -1,16 +1,18 @@
 .logoLink {
   display: inline-block;
 
-  // @include media("<tablet-1") {
-  //     display: block;
-  // }
-}
-
-.logo {
   width: 178px;
   height: 48px;
 
-  // @include media("<tablet-1") {
-  //     display: block;
-  // }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1440px) {
+    width: 100px;
+    height: 28px;
+  }
 }
+

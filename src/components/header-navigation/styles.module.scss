@@ -24,4 +24,25 @@
       color: var(--brand-red);
     }
   }
+
+  @media (max-width: 1440px) {
+    margin-left: 0;
+
+    ul {
+      flex-direction: column;
+
+      li:nth-child(1) {
+        margin-top: 20px;
+      }
+
+      li:last-child {
+        margin-bottom: 20px;
+      }
+
+      li + li {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+  }
 }

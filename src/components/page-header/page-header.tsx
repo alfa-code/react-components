@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ContentContainer } from '../content-container';
 import { Logo } from '../../components/logo/logo';
@@ -16,12 +16,38 @@ export function PageHeader(props: Props) {
     return (
       <ContentContainer>
         <header className={styles.header}>
-            <Logo />
-            <HeaderNavigation />
-            <div className={styles.marginLeftAuto}>
-              { authContent }
+            <div className={ styles.logoWrapper } >
+              <Logo />
             </div>
+            <HeaderContent>
+              <>
+                <HeaderNavigation className={ styles.navigation } />
+                <div className={ styles.foreignContent } >
+                  { authContent }
+                </div>
+              </>
+            </HeaderContent>
         </header>
       </ContentContainer>
   );
+}
+
+function HeaderContent(props: any) {
+  const { children } = props;
+
+  const [isOpened, setIsOpened] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={
+          () => { setIsOpened(!isOpened) }
+        }
+        className={ styles.mobileMenuButton }
+      />
+      <div className={ `${styles.headerContent} ${isOpened ? styles.headerContentShowed : ''}`  }>
+        { children }
+      </div>
+    </>
+);
 }

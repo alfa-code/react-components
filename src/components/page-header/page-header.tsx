@@ -44,6 +44,7 @@ function HeaderContent(props: any) {
           () => { setIsOpened(!isOpened) }
         }
         className={ styles.mobileMenuButton }
+        data-test-id="mobile-menu-button"
       />
       <div className={ `${styles.headerContent} ${isOpened ? styles.headerContentShowed : ''}`  }>
         { children }

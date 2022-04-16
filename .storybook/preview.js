@@ -49,6 +49,7 @@ export const parameters = {
       { name: 'twitter', value: '#00aced' },
       { name: 'facebook', value: '#3b5998' },
       { name: 'gray', value: '#999999' },
+      { name: 'white', value: '#ffffff' },
     ],
     grid: true,
     // grid: {

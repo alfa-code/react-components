@@ -12,7 +12,6 @@ interface Props {
 function renderLinks(linksList: LinksList): any {
   if (Array.isArray(linksList)) {
     const links = linksList.map(renderLink);
-    console.log('links:', links);
     return links;
   }
 

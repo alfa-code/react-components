@@ -6,12 +6,15 @@ import { HeaderNavigation } from '../../components/header-navigation';
 
 import styles from './styles.module.scss';
 
+import { LinksList } from './../../types/index';
+
 type Props = {
   authContent?: any;
+  linksList?: LinksList;
 }
 
 export function PageHeader(props: Props) {
-    const { authContent } = props;
+    const { linksList = [], authContent } = props;
 
     return (
       <ContentContainer paddingsOnFullWidth={ false } >
@@ -21,7 +24,10 @@ export function PageHeader(props: Props) {
             </div>
             <HeaderContent>
               <>
-                <HeaderNavigation className={ styles.navigation } />
+                <HeaderNavigation
+                  linksList={ linksList }
+                  className={ styles.navigation }
+                />
                 <div className={ styles.foreignContent } >
                   { authContent }
                 </div>

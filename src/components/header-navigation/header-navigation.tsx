@@ -1,22 +1,54 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React, { PureComponent, ReactNode, ReactElement } from 'react';
 // import Link from 'next/link'
+import { LinksList, LinkItemOrLinkList } from './../../types/index';
 
 import styles from './styles.module.scss';
 
 interface Props {
   className?: string;
+  linksList: LinksList;
 };
-interface State {};
 
-export class HeaderNavigation extends PureComponent<Props, State> {
+function renderLinks(linksList: LinksList): any {
+  if (Array.isArray(linksList)) {
+    const links = linksList.map(renderLink);
+    console.log('links:', links);
+    return links;
+  }
 
+  return null;
+}
 
+function renderLink(linkItem: LinkItemOrLinkList): ReactElement | ReturnType<typeof renderLinks> | null {
+  if (linkItem.type === 'link' && linkItem.url) {
+    return (
+      <li key={ linkItem.text }>
+        <a
+            href={ linkItem.url }
+        >
+            { linkItem.text }
+        </a>
+      </li>
+    )
+  }
+
+  if (linkItem.type === 'list') {
+    return renderLinks(linkItem.list);
+  }
+
+  return null;
+}
+
+export class HeaderNavigation extends PureComponent<Props> {
     render(): ReactNode {
-        const { className } = this.props;
+        const { className, linksList } = this.props;
 
         return (
             <nav className={ `${styles.headerNavigation} ${className}` }>
                 <ul>
+                  {
+                    renderLinks(linksList)
+                  }
                     {/* <li>
                         <Link href='/courses'>
                             Курсы
@@ -37,10 +69,7 @@ export class HeaderNavigation extends PureComponent<Props, State> {
                             Блог
                         </a>
                     </li> */}
-                    <li>
-                        {/* <Link href='/' className='disabled'>
-                            Html справочник
-                        </Link> */}
+                    {/* <li>
                         <a
                             href="https://web-handbook.ru/"
                             target="_blank"
@@ -48,7 +77,7 @@ export class HeaderNavigation extends PureComponent<Props, State> {
                         >
                             Html справочник
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         );

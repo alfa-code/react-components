@@ -24,6 +24,18 @@ export const Main = Template.bind({});
 
 Main.args = {
   label: 'PageHeader',
+  linksList: [
+    {
+      type: 'link',
+      url: '/test_1',
+      text: 'test_1',
+    },
+    {
+      type: 'link',
+      url: '/test_2',
+      text: 'test_2',
+    },
+  ],
   authContent: (
     <HeaderProfile
       avatarSrc="https://html5css.ru/w3images/avatar6.png"

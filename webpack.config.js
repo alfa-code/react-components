@@ -114,6 +114,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name]/[name].css',
+      ignoreOrder: true,
     }),
   ],
   optimization: {

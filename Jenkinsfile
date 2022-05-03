@@ -29,6 +29,7 @@ pipeline {
 
         stage('Install') {
             steps {
+                sh 'git checkout main'
                 sh 'yarn install'
             }
         }

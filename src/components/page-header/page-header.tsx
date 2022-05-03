@@ -6,7 +6,7 @@ import { HeaderNavigation } from '../../components/header-navigation';
 
 import styles from './styles.module.scss';
 
-import { LinksList } from './../../types/index';
+import { LinksList } from './../types/index';
 
 type Props = {
   authContent?: any;

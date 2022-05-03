@@ -1,6 +1,6 @@
 import React, { PureComponent, ReactNode, ReactElement } from 'react';
 // import Link from 'next/link'
-import { LinksList, LinkItemOrLinkList } from './../../types/index';
+import { LinksList, LinkItemOrLinkList } from './../types/index';
 
 import styles from './styles.module.scss';
 

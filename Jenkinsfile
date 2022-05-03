@@ -40,6 +40,7 @@ pipeline {
             }
         }
 
+
         stage('Build') {
             steps {
                 echo "Сборка";
@@ -47,14 +48,16 @@ pipeline {
             }
         }
 
-        // stage("Commit Changes") {
-        //   steps {
-        //     sh 'git tag $(npm run get:version --silent)';
-        //     sh 'git push --tags';
-        //   }
-        // }
+        stage("Commit Changes") {
+          steps {
+            sh 'npm version patch';
+            sh 'git push';
+            sh 'git tag $(npm run get:version --silent)';
+            sh 'git push --tags';
+          }
+        }
 
-        stage('Check Build') {
+        stage('Publish') {
             steps {
                 dir("dist") {
                     echo "Проверяем содержимое папки";

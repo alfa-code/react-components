@@ -29,7 +29,6 @@ pipeline {
 
         stage('Install') {
             steps {
-                sh 'git checkout main'
                 sh 'yarn install'
             }
         }
@@ -49,14 +48,14 @@ pipeline {
             }
         }
 
-        stage("Commit Changes") {
-          steps {
-            sh 'npm version patch';
-            sh 'git push';
-            sh 'git tag $(npm run get:version --silent)';
-            sh 'git push --tags';
-          }
-        }
+        // stage("Commit Changes") {
+        //   steps {
+        //     sh 'npm version patch';
+        //     sh 'git push';
+        //     sh 'git tag $(npm run get:version --silent)';
+        //     sh 'git push --tags';
+        //   }
+        // }
 
         stage('Publish') {
             steps {

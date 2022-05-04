@@ -1,5 +1,5 @@
-// @import '../../styles/global.scss';
-// @import '../../styles/breakpoints.scss';
+@import '../../styles/global.scss';
+@import '../../styles/breakpoints.scss';
 
 $containerWidth: 1440px;
 
@@ -7,16 +7,16 @@ $containerWidth: 1440px;
   width: $containerWidth;
   margin: 0 auto;
   box-sizing: border-box;
-  // background-color: var(--background-white);
+  background-color: var(--background-white);
 
-  // @media (max-width: $containerWidth) {
-  //   width: 100%;
-  //   margin: 0;
-  // }
+  @media (max-width: $containerWidth) {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .paddingsOnFullWidth {
-  // @media (max-width: $containerWidth) {
-  //   padding: 0 var(--gap-2);
-  // }
+  @media (max-width: $containerWidth) {
+    padding: 0 var(--gap-2);
+  }
 }

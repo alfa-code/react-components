@@ -17,7 +17,7 @@ export function ContentContainer(props: Props) {
 
   return (
     <div
-      className={ `${ styles.container } ${ className ? className : '' } ${paddingsOnFullWidth ? styles.paddingsOnFullWidth : ''}` }
+      className={ `${ styles.container } ${paddingsOnFullWidth ? styles.paddings : ''} a ${ className ? className : '' }` }
     >
       { children }
     </div>

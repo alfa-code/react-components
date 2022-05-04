@@ -12,11 +12,10 @@ $containerWidth: 1440px;
   @media (max-width: $containerWidth) {
     width: 100%;
     margin: 0;
-    padding: 0 var(--gap-2);
   }
 }
 
-.paddingsOnFullWidth {
+.paddings {
   @media (max-width: $containerWidth) {
     padding: 0 var(--gap-2);
   }

@@ -17,6 +17,7 @@ type Props = {
   target?: string;
   space?: 'normal' | 'available';
   nextLink?: ReactNode
+  dataTestId?: string;
 }
 
 export class Button extends Component<Props> {
@@ -82,6 +83,7 @@ export class Button extends Component<Props> {
       target,
       space,
       nextLink,
+      dataTestId,
     } = this.props;
 
     const isLoading = mode === 'loading';
@@ -111,6 +113,7 @@ export class Button extends Component<Props> {
             <a
               className={ linkStyle }
               target={target}
+              data-test-id={ dataTestId }
             >
               {linkContent}
             </a>
@@ -123,6 +126,7 @@ export class Button extends Component<Props> {
             className={ linkStyle }
             target={target}
             href={href}
+            data-test-id={ dataTestId }
           >
             { linkContent }
           </a>

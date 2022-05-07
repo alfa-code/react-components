@@ -1,7 +1,5 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import Link from 'next/link';
-
 import logoImage from '../../assets/icons/logo/logo.svg';
 import logoShort from '../../assets/icons/logo/logo-without-name.svg';
 import logoDark from '../../assets/icons/logo/logo-without-name-dark.svg';
@@ -11,6 +9,7 @@ import styles from './styles.module.scss';
 interface Props {
   type?: 'dark' | 'short' | 'default' | 'white' | 'black';
   className?: string;
+  component?: any;
 }
 
 interface State {};
@@ -27,17 +26,40 @@ export class Logo extends PureComponent<Props, State> {
   }
 
   render(): ReactNode {
-    const { type, className } = this.props;
+    const {
+      type,
+      className,
+      component: Link,
+    } = this.props;
 
     // @ts-ignore
     const logoPath = logoImgMap[type];
 
+    const classNames = `${styles.logoLink} ${className ? className : ''}`;
+
+    if (Link) {
+      return (
+        <Link href='/'>
+          <a className={ classNames }>
+            <img
+              src={ logoPath }
+              alt="Alfa-Code"
+            />
+          </a>
+        </Link>
+      );
+    }
+
     return (
-      <Link href='/' >
-        <a className={`${styles.logoLink} ${className ? className : ''}`}>
-          <img src={ logoPath } alt="" />
+        <a
+          href='/'
+          className={ classNames }
+        >
+          <img
+            src={ logoPath }
+            alt="Логотип Alfa-Code"
+          />
         </a>
-      </Link>
     );
   }
 }

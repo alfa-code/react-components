@@ -54,10 +54,10 @@ export function PageFooter() {
               Контакты
             </h4>
             <a
-              href="mailto:info@alfa-code.ru"
+              href="mailto:info@alfa-code.com"
               className={ styles.email }
             >
-              info@alfa-code.ru
+              info@alfa-code.com
             </a>
           </div>
 

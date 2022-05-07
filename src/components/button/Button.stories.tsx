@@ -25,15 +25,32 @@ const Template: ComponentStory<typeof Button> = (args) => {
 }
 
 export const Primary = Template.bind({});
-
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  children: "Button",
+  children: "Primary",
+  viewType: 'primary',
   label: 'Button',
 };
 
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+  children: "Primary",
+  label: 'Button',
+  viewType: 'primary',
+  icon: 'https://www.pngkit.com/png/full/438-4380629_escuela-de-ingenier-a-mach-correct-icon-png.png',
+};
+
+
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: "Button 2",
+  children: "Secondary",
   label: 'Button',
+  viewType: 'secondary',
+};
+
+export const SecondaryWithIcon = Template.bind({});
+SecondaryWithIcon.args = {
+  children: "Secondary",
+  label: 'Button',
+  viewType: 'secondary',
+  icon: 'https://www.pngkit.com/png/full/438-4380629_escuela-de-ingenier-a-mach-correct-icon-png.png',
 };

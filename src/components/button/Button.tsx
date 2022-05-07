@@ -147,6 +147,7 @@ export class Button extends Component<Props> {
         }
         onClick={onClick}
         disabled={isLoading || isDisabled}
+        data-test-id={ dataTestId }
       >
         { this.renderButtonContent() }
       </button>

@@ -41,10 +41,10 @@ export const parameters = {
     },
   },
 
-  layout: 'fullscreen',
+  layout: 'centered',
 
   backgrounds: {
-    default: 'gray',
+    default: 'white',
     values: [
       { name: 'twitter', value: '#00aced' },
       { name: 'facebook', value: '#3b5998' },

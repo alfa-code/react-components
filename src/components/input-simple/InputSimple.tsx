@@ -55,6 +55,17 @@ export class InputSimple extends React.PureComponent<Props, State> {
         });
     };
 
+    static getDerivedStateFromProps = (props: Props, state: State) => {
+      if (props.value && props.value !== state.value) {
+        return {
+          ...state,
+          value: props.value,
+        }
+      }
+
+      return null;
+    }
+
     render(): ReactNode {
         const {
             placeholder,
@@ -75,6 +86,8 @@ export class InputSimple extends React.PureComponent<Props, State> {
 
         const isPassword = type === 'password';
 
+        const currentValue = propsValue || value;
+
         return (
             <span className={ `${ styles.inputSimple } ${ className ? className : '' } ${ styles[`${ size }Width`] }` }>
                 <input
@@ -83,13 +96,17 @@ export class InputSimple extends React.PureComponent<Props, State> {
                     onFocus={ onFocus }
                     onBlur={ onBlur }
                     name={ name }
-                    value={ propsValue || value }
+                    value={ currentValue }
                     className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
                     disabled={ disabled }
                 />
-                <span className={ `${ styles.label } ${ propsValue ? styles.labelFilled : '' }` }>
-                    { placeholder }
-                </span>
+                {
+                  placeholder && (
+                    <span className={ `${ styles.label } ${ currentValue ? styles.labelFilled : '' }` }>
+                        { placeholder }
+                    </span>
+                  )
+                }
                 { isPassword && (
                     <button
                       type='button'

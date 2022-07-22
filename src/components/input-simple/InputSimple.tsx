@@ -87,6 +87,10 @@ export class InputSimple extends React.PureComponent<Props, State> {
     const isPassword = type === 'password';
 
     const currentValue = propsValue || value;
+    console.log('currentValue:', currentValue);
+    console.log('value:', value);
+    console.log('propsValue:', propsValue);
+    console.log('this.state:', this.state);
 
     return (
       <span className={`${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}`}>

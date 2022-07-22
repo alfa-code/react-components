@@ -81,7 +81,8 @@ export class InputSimple extends React.PureComponent<Props, State> {
       type,
     } = this.props;
 
-    const { value: currentValue, isHide } = this.state;
+    const { value, isHide } = this.state;
+    console.log('value!!!!:', value);
     const isError = error && touched;
 
     const isPassword = type === 'password';
@@ -98,7 +99,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
           onFocus={onFocus}
           onBlur={onBlur}
           name={name}
-          value={currentValue}
+          value={ value }
           className={
             classNames({
               [styles.input]: true,
@@ -110,9 +111,8 @@ export class InputSimple extends React.PureComponent<Props, State> {
         {
           placeholder && (
             <span className={
-              classNames({
-                [styles.label]: true,
-                [styles.labelFilled]: currentValue,
+              classNames(styles.label, {
+                [styles.labelFilled]: value,
               })
             }>
               {placeholder}

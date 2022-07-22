@@ -90,6 +90,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
     const currentValue = propsValue || value;
 
     const isLabelFilled = Boolean(currentValue);
+    console.log('isLabelFilled:', isLabelFilled);
 
     return (
       <span className={

@@ -89,6 +89,8 @@ export class InputSimple extends React.PureComponent<Props, State> {
 
     const currentValue = propsValue || value;
 
+    const isLabelFilled = Boolean(currentValue);
+
     return (
       <span className={
         classNames(styles.inputSimple, {
@@ -115,7 +117,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
             <span className={
               classNames({
                 [styles.label]: true,
-                [styles.labelFilled]: Boolean(currentValue),
+                [styles.labelFilled]: isLabelFilled,
               })
             }>
               {placeholder}

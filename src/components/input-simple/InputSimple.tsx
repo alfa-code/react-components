@@ -7,119 +7,119 @@ import React, { ReactNode } from 'react';
 import styles from './styles.module.scss';
 
 interface Props {
-    placeholder?: string;
-    children?: any;
-    onChange?: any;
-    value?: any;
-    touched?: boolean;
-    error?: string;
-    onBlur?: () => void;
-    onFocus?: () => void;
-    className?: string;
-    name?: string;
-    size?: string;
-    disabled?: boolean;
-    type: 'password' | 'text';
+  placeholder?: string;
+  children?: any;
+  onChange?: any;
+  value?: any;
+  touched?: boolean;
+  error?: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  className?: string;
+  name?: string;
+  size?: string;
+  disabled?: boolean;
+  type: 'password' | 'text';
 }
 
 interface State {
-    value: string;
-    isHide: boolean;
+  value: string;
+  isHide: boolean;
 }
 
 export class InputSimple extends React.PureComponent<Props, State> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            value: props.value || '',
-            isHide: (props.type === 'password') ? true : false
-        };
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      value: props.value || '',
+      isHide: (props.type === 'password') ? true : false
+    };
+  }
+
+  inputOnChange = (event: any) => {
+    const { onChange } = this.props;
+    const { value } = event.target;
+
+    if (onChange) {
+      onChange(event)
     }
 
-    inputOnChange = (event: any) => {
-        const { onChange } = this.props;
-        const { value } = event.target;
+    this.setState({ value });
+  };
 
-        if (onChange) {
-            onChange(event)
-        }
+  handleShowPassword = () => {
+    const { isHide } = this.state;
 
-        this.setState({ value });
-    };
+    this.setState({
+      isHide: !isHide
+    });
+  };
 
-    handleShowPassword = () => {
-      const { isHide } = this.state;
-
-        this.setState({
-            isHide: !isHide
-        });
-    };
-
-    static getDerivedStateFromProps = (props: Props, state: State) => {
-      if (props.value && props.value !== state.value) {
-        return {
-          ...state,
-          value: props.value,
-        }
+  static getDerivedStateFromProps = (props: Props, state: State) => {
+    if (typeof props.value === 'string' && props.value !== state.value) {
+      return {
+        ...state,
+        value: props.value,
       }
-
-      return null;
     }
 
-    render(): ReactNode {
-        const {
-            placeholder,
-            value: propsValue,
-            error,
-            touched,
-            onBlur,
-            onFocus,
-            size,
-            name,
-            className,
-            disabled,
-            type,
-        } = this.props;
+    return null;
+  }
 
-        const { value, isHide } = this.state;
-        const isError = error && touched;
+  render(): ReactNode {
+    const {
+      placeholder,
+      value: propsValue,
+      error,
+      touched,
+      onBlur,
+      onFocus,
+      size,
+      name,
+      className,
+      disabled,
+      type,
+    } = this.props;
 
-        const isPassword = type === 'password';
+    const { value, isHide } = this.state;
+    const isError = error && touched;
 
-        const currentValue = propsValue || value;
+    const isPassword = type === 'password';
 
-        return (
-            <span className={ `${ styles.inputSimple } ${ className ? className : '' } ${ styles[`${ size }Width`] }` }>
-                <input
-                    type={ isHide ? 'password' : 'text' }
-                    onChange={ this.inputOnChange }
-                    onFocus={ onFocus }
-                    onBlur={ onBlur }
-                    name={ name }
-                    value={ currentValue }
-                    className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
-                    disabled={ disabled }
-                />
-                {
-                  placeholder && (
-                    <span className={ `${ styles.label } ${ currentValue ? styles.labelFilled : '' }` }>
-                        { placeholder }
-                    </span>
-                  )
-                }
-                { isPassword && (
-                    <button
-                      type='button'
-                      className={ `${styles.eye} ${isHide ? styles.eyeImage : styles.eyeHideImage}` }
-                      onClick={ this.handleShowPassword }
-                    >
-                    </button>
-                ) }
+    const currentValue = propsValue || value;
 
-                { isError && <span className={ styles.inputErrorLabel }>
-                    { error }
-                </span> }
-        </span>
-        );
-    }
+    return (
+      <span className={`${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}`}>
+        <input
+          type={isHide ? 'password' : 'text'}
+          onChange={this.inputOnChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          name={name}
+          value={currentValue}
+          className={`${styles.input} ${isError ? styles.inputError : ''}`}
+          disabled={disabled}
+        />
+        {
+          placeholder && (
+            <span className={`${styles.label} ${currentValue ? styles.labelFilled : ''}`}>
+              {placeholder}
+            </span>
+          )
+        }
+        {isPassword && (
+          <button
+            type='button'
+            className={`${styles.eye} ${isHide ? styles.eyeImage : styles.eyeHideImage}`}
+            onClick={this.handleShowPassword}
+          >
+          </button>
+        )}
+
+        {isError && <span className={styles.inputErrorLabel}>
+          {error}
+        </span>}
+      </span>
+    );
+  }
 }

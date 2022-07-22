@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import classNames from 'classnames';
 
 // import Image from 'next/image';
 // import eyeHideImage from '@/public/assets/icons/info-icons/eye-show.svg';
@@ -87,13 +88,13 @@ export class InputSimple extends React.PureComponent<Props, State> {
     const isPassword = type === 'password';
 
     const currentValue = propsValue || value;
-    console.log('currentValue:', currentValue);
-    console.log('value:', value);
-    console.log('propsValue:', propsValue);
-    console.log('this.state:', this.state);
 
     return (
-      <span className={`${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}`}>
+      <span className={
+        classNames(styles.inputSimple, {
+          className: className,
+        })
+      }>
         <input
           type={isHide ? 'password' : 'text'}
           onChange={this.inputOnChange}
@@ -101,12 +102,22 @@ export class InputSimple extends React.PureComponent<Props, State> {
           onBlur={onBlur}
           name={name}
           value={currentValue}
-          className={`${styles.input} ${isError ? styles.inputError : ''}`}
+          className={
+            classNames({
+              [styles.input]: true,
+              [styles.inputError]: isError,
+            })
+          }
           disabled={disabled}
         />
         {
           placeholder && (
-            <span className={`${styles.label} ${currentValue ? styles.labelFilled : ''}`}>
+            <span className={
+              classNames({
+                [styles.label]: true,
+                [styles.labelFilled]: Boolean(currentValue),
+              })
+            }>
               {placeholder}
             </span>
           )
@@ -114,13 +125,19 @@ export class InputSimple extends React.PureComponent<Props, State> {
         {isPassword && (
           <button
             type='button'
-            className={`${styles.eye} ${isHide ? styles.eyeImage : styles.eyeHideImage}`}
+            className={
+              classNames({
+                [styles.eye]: true,
+                [styles.eyeImage]: isHide,
+                [styles.eyeHideImage]: !isHide,
+              })
+            }
             onClick={this.handleShowPassword}
           >
           </button>
         )}
 
-        {isError && <span className={styles.inputErrorLabel}>
+        {isError && <span className={ styles.inputErrorLabel }>
           {error}
         </span>}
       </span>

@@ -40,7 +40,6 @@ export class InputSimple extends React.PureComponent<Props, State> {
   inputOnChange = (event: any) => {
     const { onChange } = this.props;
     const { value } = event.target;
-    console.log('value:', value);
 
     if (onChange) {
       onChange(event)
@@ -82,7 +81,6 @@ export class InputSimple extends React.PureComponent<Props, State> {
     } = this.props;
 
     const { value, isHide } = this.state;
-    console.log('value!!!!:', value);
     const isError = error && touched;
 
     const isPassword = type === 'password';

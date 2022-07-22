@@ -11,7 +11,7 @@ interface Props {
   placeholder?: string;
   children?: any;
   onChange?: any;
-  value?: any;
+  value?: string;
   touched?: boolean;
   error?: string;
   onBlur?: () => void;
@@ -40,6 +40,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
   inputOnChange = (event: any) => {
     const { onChange } = this.props;
     const { value } = event.target;
+    console.log('value:', value);
 
     if (onChange) {
       onChange(event)
@@ -70,27 +71,20 @@ export class InputSimple extends React.PureComponent<Props, State> {
   render(): ReactNode {
     const {
       placeholder,
-      value: propsValue,
       error,
       touched,
       onBlur,
       onFocus,
-      size,
       name,
       className,
       disabled,
       type,
     } = this.props;
 
-    const { value, isHide } = this.state;
+    const { value: currentValue, isHide } = this.state;
     const isError = error && touched;
 
     const isPassword = type === 'password';
-
-    const currentValue = propsValue || value;
-
-    const isLabelFilled = Boolean(currentValue);
-    console.log('isLabelFilled:', isLabelFilled);
 
     return (
       <span className={
@@ -118,7 +112,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
             <span className={
               classNames({
                 [styles.label]: true,
-                [styles.labelFilled]: isLabelFilled,
+                [styles.labelFilled]: currentValue,
               })
             }>
               {placeholder}

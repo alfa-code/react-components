@@ -1,5 +1,4 @@
 import React, { PureComponent, ReactNode, ReactElement } from 'react';
-import { Link } from "@nextui-org/react";
 import { LinksList, LinkItemOrLinkList } from './../types/index';
 
 import styles from './styles.module.scss';
@@ -22,11 +21,11 @@ function renderLink(linkItem: LinkItemOrLinkList): ReactElement | ReturnType<typ
   if (linkItem.type === 'link' && linkItem.url) {
     return (
       <li key={ linkItem.text }>
-        <Link
+        <a
           href={ linkItem.url }
         >
           { linkItem.text }
-        </Link>
+        </a>
       </li>
     )
   }

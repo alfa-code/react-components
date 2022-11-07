@@ -29,11 +29,8 @@ function renderLink(linkItem: LinkItemOrLinkList, LinkComponent: any): ReactElem
           <LinkComponent
             href={ linkItem.url }
             passHref
-            legacyBehavior
           >
-            <a>
               { linkItem.text }
-            </a>
           </LinkComponent>
         </li>
       )

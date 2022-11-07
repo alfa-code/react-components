@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@alfa-code/react-components@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@alfa-code/react-components/-/react-components-1.13.0.tgz#c0702e22b51f05ec31d33fa33982d01e223c0152"
+  integrity sha512-e4dh0F3ZClWgY02bWNOIaM1sF1qDWYRwN+DkcYu5eDH1brRPdDkAMCfhXTun53sIyqTqI3CSqFzl5Lwm0f9n5Q==
+  dependencies:
+    classnames "^2.3.1"
+    include-media "^1.4.10"
+    postcss-loader "^6.2.1"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.16.0", "@babel/code-frame@^7.5.5", "@babel/code-frame@^7.8.3":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.16.0.tgz#0dfc80309beec8411e65e706461c408b0bb9b431"

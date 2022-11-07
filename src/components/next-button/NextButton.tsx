@@ -104,7 +104,7 @@ export class NextButton extends Component<Props> {
       )
 
       return (
-        <Link href={href}>
+        <Link href={href} legacyBehavior>
           <a
             className={
               `

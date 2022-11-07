@@ -109,7 +109,7 @@ export class Button extends Component<Props> {
 
       if (nextLink) {
         return (
-          <Link href={href}>
+          <Link href={href} legacyBehavior>
             <a
               className={ linkStyle }
               target={target}

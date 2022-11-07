@@ -104,21 +104,20 @@ export class NextButton extends Component<Props> {
       )
 
       return (
-        <Link href={href} legacyBehavior>
-          <a
-            className={
-              `
-              ${styles.button}
-              ${this.getButtonClassNames()}
-              ${className}
-              ${(isLoading || isDisabled) ? styles.disabled : ''}
-              ${(isSpaceAvailable) ? styles.spaceAvailable : ''}
-              `
-            }
-            target={target}
-          >
-            {linkContent}
-          </a>
+        <Link
+          href={href}
+          className={
+            `
+            ${styles.button}
+            ${this.getButtonClassNames()}
+            ${className}
+            ${(isLoading || isDisabled) ? styles.disabled : ''}
+            ${(isSpaceAvailable) ? styles.spaceAvailable : ''}
+            `
+          }
+          target={target}
+        >
+          {linkContent}
         </Link>
       );
     }

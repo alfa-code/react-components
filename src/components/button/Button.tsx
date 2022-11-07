@@ -109,27 +109,26 @@ export class Button extends Component<Props> {
 
       if (nextLink) {
         return (
-          <Link href={href} legacyBehavior>
-            <a
-              className={ linkStyle }
-              target={target}
-              data-test-id={ dataTestId }
-            >
-              {linkContent}
-            </a>
+          <Link
+            href={href}
+            className={linkStyle}
+            target={target}
+            data-test-id={dataTestId}
+          >
+            {linkContent}
           </Link>
         );
       }
 
       return (
-          <a
-            className={ linkStyle }
-            target={target}
-            href={href}
-            data-test-id={ dataTestId }
-          >
-            { linkContent }
-          </a>
+        <a
+          className={linkStyle}
+          target={target}
+          href={href}
+          data-test-id={dataTestId}
+        >
+          {linkContent}
+        </a>
       );
     }
 
@@ -147,9 +146,9 @@ export class Button extends Component<Props> {
         }
         onClick={onClick}
         disabled={isLoading || isDisabled}
-        data-test-id={ dataTestId }
+        data-test-id={dataTestId}
       >
-        { this.renderButtonContent() }
+        {this.renderButtonContent()}
       </button>
     );
   }

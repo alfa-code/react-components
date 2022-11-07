@@ -12,7 +12,7 @@ interface Props {
   component?: any;
 }
 
-interface State {};
+interface State { };
 
 const logoImgMap = {
   dark: logoDark,
@@ -39,27 +39,28 @@ export class Logo extends PureComponent<Props, State> {
 
     if (Link) {
       return (
-        <Link href='/' legacyBehavior>
-          <a className={ classNames }>
-            <img
-              src={ logoPath }
-              alt="Alfa-Code"
-            />
-          </a>
+        <Link
+          href='/'
+          className={classNames}
+        >
+          <img
+            src={logoPath}
+            alt="Alfa-Code"
+          />
         </Link>
       );
     }
 
     return (
-        <a
-          href='/'
-          className={ classNames }
-        >
-          <img
-            src={ logoPath }
-            alt="Логотип Alfa-Code"
-          />
-        </a>
+      <a
+        href='/'
+        className={classNames}
+      >
+        <img
+          src={logoPath}
+          alt="Логотип Alfa-Code"
+        />
+      </a>
     );
   }
 }

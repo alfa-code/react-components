@@ -55,7 +55,6 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "@alfa-code/react-components": "^1.13.0",
     "classnames": "^2.3.1",
     "include-media": "^1.4.10",
     "postcss-loader": "^6.2.1"

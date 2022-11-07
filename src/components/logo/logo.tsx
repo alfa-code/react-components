@@ -42,6 +42,7 @@ export class Logo extends PureComponent<Props, State> {
         <Link
           href='/'
           className={classNames}
+          legacyBehavior
         >
           <img
             src={logoPath}

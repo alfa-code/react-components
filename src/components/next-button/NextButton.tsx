@@ -116,6 +116,7 @@ export class NextButton extends Component<Props> {
             `
           }
           target={target}
+          legacyBehavior
         >
           {linkContent}
         </Link>

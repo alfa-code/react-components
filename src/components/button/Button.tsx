@@ -114,6 +114,7 @@ export class Button extends Component<Props> {
             className={linkStyle}
             target={target}
             data-test-id={dataTestId}
+            legacyBehavior
           >
             {linkContent}
           </Link>

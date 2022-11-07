@@ -11,10 +11,15 @@ import { LinksList } from './../types/index';
 type Props = {
   authContent?: any;
   linksList?: LinksList;
+  LinkComponent?: any;
 }
 
 export function PageHeader(props: Props) {
-    const { linksList = [], authContent } = props;
+    const {
+      linksList = [],
+      authContent,
+      LinkComponent = null
+    } = props;
 
     return (
       <ContentContainer paddingsOnFullWidth={ false } >
@@ -27,6 +32,7 @@ export function PageHeader(props: Props) {
                 <HeaderNavigation
                   linksList={ linksList }
                   className={ styles.navigation }
+                  LinkComponent={ LinkComponent }
                 />
                 <div className={ styles.foreignContent } >
                   { authContent }

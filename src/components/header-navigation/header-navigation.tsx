@@ -6,28 +6,48 @@ import styles from './styles.module.scss';
 interface Props {
   className?: string;
   linksList: LinksList;
+  LinkComponent?: any;
 };
 
-function renderLinks(linksList: LinksList): any {
+function renderLinks(linksList: LinksList, LinkComponent = null): any {
   if (Array.isArray(linksList)) {
-    const links = linksList.map(renderLink);
+    const links = linksList.map((link) => {
+      return renderLink(link, LinkComponent);
+    });
+
     return links;
   }
 
   return null;
 }
 
-function renderLink(linkItem: LinkItemOrLinkList): ReactElement | ReturnType<typeof renderLinks> | null {
+function renderLink(linkItem: LinkItemOrLinkList, LinkComponent: any): ReactElement | ReturnType<typeof renderLinks> | null {
   if (linkItem.type === 'link' && linkItem.url) {
-    return (
-      <li key={ linkItem.text }>
-        <a
-          href={ linkItem.url }
-        >
-          { linkItem.text }
-        </a>
-      </li>
-    )
+    if (LinkComponent) {
+      return (
+        <li key={ linkItem.text }>
+          <LinkComponent
+            href={ linkItem.url }
+            passHref
+          >
+            <a>
+              { linkItem.text }
+            </a>
+          </LinkComponent>
+        </li>
+      )
+    } else {
+      return (
+        <li key={ linkItem.text }>
+          <a
+            href={ linkItem.url }
+          >
+            { linkItem.text }
+          </a>
+        </li>
+      )
+    }
+
   }
 
   if (linkItem.type === 'list') {
@@ -39,13 +59,13 @@ function renderLink(linkItem: LinkItemOrLinkList): ReactElement | ReturnType<typ
 
 export class HeaderNavigation extends PureComponent<Props> {
     render(): ReactNode {
-        const { className, linksList } = this.props;
+        const { className, linksList, LinkComponent = null } = this.props;
 
         return (
             <nav className={ `${styles.headerNavigation} ${className}` }>
                 <ul>
                   {
-                    renderLinks(linksList)
+                    renderLinks(linksList, LinkComponent)
                   }
                     {/* <li>
                         <Link href='/courses'>

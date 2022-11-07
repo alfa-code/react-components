@@ -1,5 +1,5 @@
 import React, { PureComponent, ReactNode, ReactElement } from 'react';
-// import Link from 'next/link'
+import Link from 'next/link'
 import { LinksList, LinkItemOrLinkList } from './../types/index';
 
 import styles from './styles.module.scss';
@@ -22,11 +22,14 @@ function renderLink(linkItem: LinkItemOrLinkList): ReactElement | ReturnType<typ
   if (linkItem.type === 'link' && linkItem.url) {
     return (
       <li key={ linkItem.text }>
-        <a
-            href={ linkItem.url }
+        <Link
+          href={ linkItem.url }
+          passHref
         >
-            { linkItem.text }
-        </a>
+          <a>
+              { linkItem.text }
+          </a>
+        </Link>
       </li>
     )
   }

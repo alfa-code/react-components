@@ -39,8 +39,8 @@ export class Logo extends PureComponent<Props, State> {
 
     if (Link) {
       return (
-        <Link href='/'>
-          <a className={ classNames } legacyBehavior>
+        <Link href='/' legacyBehavior>
+          <a className={ classNames }>
             <img
               src={ logoPath }
               alt="Alfa-Code"

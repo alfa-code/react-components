@@ -54,10 +54,10 @@ export function PageFooter() {
               Контакты
             </h4>
             <a
-              href="mailto:info@alfa-code.com"
+              href="mailto:support@alfa-brain.com"
               className={ styles.email }
             >
-              info@alfa-code.com
+              support@alfa-brain.com
             </a>
           </div>
 
@@ -74,7 +74,7 @@ export function PageFooter() {
       </ContentContainer>
       <div className={ styles.copyright }>
         <span>
-          © «Alfa Code» 2022
+          © «Alfa Brain» { new Date().getFullYear() }
         </span>
       </div>
     </footer>

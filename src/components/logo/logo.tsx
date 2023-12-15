@@ -46,7 +46,7 @@ export class Logo extends PureComponent<Props, State> {
         >
           <img
             src={logoPath}
-            alt="Alfa-Code"
+            alt="Alfa-Brain"
           />
         </Link>
       );
@@ -59,7 +59,7 @@ export class Logo extends PureComponent<Props, State> {
       >
         <img
           src={logoPath}
-          alt="Логотип Alfa-Code"
+          alt="Логотип Alfa-Brain"
         />
       </a>
     );

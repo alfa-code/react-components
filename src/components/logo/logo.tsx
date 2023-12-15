@@ -1,8 +1,6 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import logoImage from '../../assets/icons/logo/logo.svg';
-import logoShort from '../../assets/icons/logo/logo-without-name.svg';
-import logoDark from '../../assets/icons/logo/logo-without-name-dark.svg';
+import logoImage from '../../assets/icons/logo/logo_horizontal_black.svg';
 
 import styles from './styles.module.scss';
 
@@ -13,12 +11,6 @@ interface Props {
 }
 
 interface State { };
-
-const logoImgMap = {
-  dark: logoDark,
-  short: logoShort,
-  default: logoImage,
-}
 
 export class Logo extends PureComponent<Props, State> {
   static defaultProps = {
@@ -32,9 +24,6 @@ export class Logo extends PureComponent<Props, State> {
       component: Link,
     } = this.props;
 
-    // @ts-ignore
-    const logoPath = logoImgMap[type];
-
     const classNames = `${styles.logoLink} ${className ? className : ''}`;
 
     if (Link) {
@@ -45,8 +34,8 @@ export class Logo extends PureComponent<Props, State> {
           legacyBehavior
         >
           <img
-            src={logoPath}
-            alt="Alfa-Brain"
+            src={ logoImage }
+            alt="Логотип Alfa-Brain"
           />
         </Link>
       );
@@ -58,7 +47,7 @@ export class Logo extends PureComponent<Props, State> {
         className={classNames}
       >
         <img
-          src={logoPath}
+          src={ logoImage }
           alt="Логотип Alfa-Brain"
         />
       </a>
